@@ -1,7 +1,7 @@
 name = "SpkCore"
 uuid = "eec945ed-7f95-4036-8b67-eea4cb9a7bde"
 authors = ["scottiealexander <scottiealexander11@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
