@@ -1,6 +1,4 @@
-using Histogram
-
-using Statistics
+using Statistics, StatsBase
 
 export relayed, isi_efficacy, efficacy
 
@@ -82,9 +80,10 @@ function isi_efficacy(pre::TS, post::TS, bin_size::Float64,
 
     # isi distribution of relayed second spikes divided by isi distribution of
     # all second spikes
-    d = hist(post_isi[krel_second], edges)[2] ./ hist(post_isi, edges)[2]
+    rel = fit(Histogram, post_isi[krel_second], edges)
+    all = fit(Histogram, post_isi, edges)
 
-    return d, edges[1:end-1]
+    return rel.weights ./ all.weights, edges[1:end-1]
 end
 # ============================================================================ #
 """
